@@ -56,22 +56,21 @@ def days_joao_never_went(all_orders, week_days):
     for order in all_orders:
         if order['client'] == 'joao':
             days.add(order['day'])
-            print('------', order['day'])
-    print(week_days.difference(days))
     return week_days.difference(days)
 
 
 def analyze_log(path_to_file):
     [all_orders, meals, week_days] = read_csv_orders(path_to_file)
 
-    most_requested_by_maria(all_orders)
-    qty_hamburguer_by_arnaldo(all_orders)
-    never_requested_by_joao(all_orders, meals)
-    days_joao_never_went(all_orders, week_days)
-    print('fim.')
-    # print(all_orders)
-    print(meals)
-    print(week_days)
+    infos = (
+        f"{most_requested_by_maria(all_orders)}\n"
+        f"{qty_hamburguer_by_arnaldo(all_orders)}\n"
+        f"{never_requested_by_joao(all_orders, meals)}\n"
+        f"{days_joao_never_went(all_orders, week_days)}\n"
+    )
+
+    with open('data/mkt_campaign.txt', 'w') as file:
+        file.write(infos)
 
 
 analyze_log(path_to_file)
