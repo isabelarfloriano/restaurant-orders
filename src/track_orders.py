@@ -7,7 +7,7 @@ class TrackOrders:
         return len(self.orders)
 
     def add_new_order(self, customer, order, day):
-        self.orders.append({
+        return self.orders.append({
             'client': customer,
             'dish': order,
             'day': day
