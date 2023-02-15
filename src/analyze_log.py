@@ -30,15 +30,25 @@ def most_requested_by_maria(all_orders):
     for order in all_orders:
         if order['client'] == 'maria':
             requests.append(order['dish'])
-            print('------', requests)
-    print(max(requests, key=requests.count))
     return max(requests, key=requests.count)
+
+
+def qty_hamburguer_by_arnaldo(all_orders):
+    count_requests = 0
+    for order in all_orders:
+        if order['client'] == 'arnaldo' :
+            if order['dish'] == 'hamburguer':
+                count_requests += 1
+            print('------', order['dish'])
+    print(count_requests)
+    return count_requests
 
 
 def analyze_log(path_to_file):
     [all_orders, meals, week_days] = read_csv_orders(path_to_file)
     
     most_requested_by_maria(all_orders)
+    qty_hamburguer_by_arnaldo(all_orders)
     print('fim.')
     # print(all_orders)
     print(meals)
