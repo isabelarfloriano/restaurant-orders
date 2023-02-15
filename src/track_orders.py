@@ -14,7 +14,11 @@ class TrackOrders:
         })
 
     def get_most_ordered_dish_per_customer(self, customer):
-        pass
+        requests = []
+        for order in self.orders:
+            if order['client'] == customer:
+                requests.append(order['dish'])
+        return max(requests, key=requests.count)
 
     def get_never_ordered_per_customer(self, customer):
         pass
