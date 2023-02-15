@@ -39,16 +39,24 @@ def qty_hamburguer_by_arnaldo(all_orders):
         if order['client'] == 'arnaldo' :
             if order['dish'] == 'hamburguer':
                 count_requests += 1
-            print('------', order['dish'])
-    print(count_requests)
     return count_requests
 
+
+def never_requested_by_joao(all_orders, meals):
+    requests = set()
+    for order in all_orders:
+        if order['client'] == 'joao' :
+            requests.add(order['dish'])
+            print('------', order['dish'])
+    print(meals.difference(requests))
+    return meals.difference(requests)
 
 def analyze_log(path_to_file):
     [all_orders, meals, week_days] = read_csv_orders(path_to_file)
     
     most_requested_by_maria(all_orders)
     qty_hamburguer_by_arnaldo(all_orders)
+    never_requested_by_joao(all_orders, meals)
     print('fim.')
     # print(all_orders)
     print(meals)
