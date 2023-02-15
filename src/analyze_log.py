@@ -3,6 +3,7 @@ import csv
 
 path_to_file = 'data/orders_1.csv'
 
+
 def read_csv_orders(path_to_file):
     all_orders = []
     meals = set()
@@ -36,7 +37,7 @@ def most_requested_by_maria(all_orders):
 def qty_hamburguer_by_arnaldo(all_orders):
     count_requests = 0
     for order in all_orders:
-        if order['client'] == 'arnaldo' :
+        if order['client'] == 'arnaldo':
             if order['dish'] == 'hamburguer':
                 count_requests += 1
     return count_requests
@@ -45,7 +46,7 @@ def qty_hamburguer_by_arnaldo(all_orders):
 def never_requested_by_joao(all_orders, meals):
     requests = set()
     for order in all_orders:
-        if order['client'] == 'joao' :
+        if order['client'] == 'joao':
             requests.add(order['dish'])
     return meals.difference(requests)
 
@@ -53,15 +54,16 @@ def never_requested_by_joao(all_orders, meals):
 def days_joao_never_went(all_orders, week_days):
     days = set()
     for order in all_orders:
-        if order['client'] == 'joao' :
+        if order['client'] == 'joao':
             days.add(order['day'])
             print('------', order['day'])
     print(week_days.difference(days))
     return week_days.difference(days)
 
+
 def analyze_log(path_to_file):
     [all_orders, meals, week_days] = read_csv_orders(path_to_file)
-    
+
     most_requested_by_maria(all_orders)
     qty_hamburguer_by_arnaldo(all_orders)
     never_requested_by_joao(all_orders, meals)
@@ -70,5 +72,6 @@ def analyze_log(path_to_file):
     # print(all_orders)
     print(meals)
     print(week_days)
+
 
 analyze_log(path_to_file)
