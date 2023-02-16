@@ -40,15 +40,24 @@ class TrackOrders:
 
     def get_busiest_day(self):
         days = {}
-        busiest_days = self.orders[0]['day']
+        busiest_day = self.orders[0]['day']
         for order in self.orders:
             if order['day'] not in days:
                 days[order['day']] = 1
             else:
                 days[order['day']] += 1
-            if days[order['day']] > days[busiest_days]:
-                busiest_days = order['day']
-        return busiest_days
+            if days[order['day']] > days[busiest_day]:
+                busiest_day = order['day']
+        return busiest_day
 
     def get_least_busy_day(self):
-        pass
+        days = {}
+        least_day = self.orders[0]['day']
+        for order in self.orders:
+            if order['day'] not in days:
+                days[order['day']] = 1
+            else:
+                days[order['day']] += 1
+            if days[order['day']] < days[least_day]:
+                least_day = order['day']
+        return least_day
