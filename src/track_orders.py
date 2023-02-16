@@ -39,7 +39,16 @@ class TrackOrders:
         return days.difference(customer_days)
 
     def get_busiest_day(self):
-        pass
+        days = {}
+        busiest_days = self.orders[0]['day']
+        for order in self.orders:
+            if order['day'] not in days:
+                days[order['day']] = 1
+            else:
+                days[order['day']] += 1
+            if days[order['day']] > days[busiest_days]:
+                busiest_days = order['day']
+        return busiest_days
 
     def get_least_busy_day(self):
         pass
