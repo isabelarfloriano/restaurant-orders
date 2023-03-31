@@ -27,7 +27,7 @@ class InventoryControl:
         for item in ingredients:
             if self.inventory[item] == 0:
                 return False
-        self.inventory[item] -= 1
+            self.inventory[item] -= 1
         self.orders.add_new_order(customer, order, day)
 
     def get_quantities_to_buy(self):
