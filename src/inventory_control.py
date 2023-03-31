@@ -46,7 +46,7 @@ class InventoryControl:
         dishes_available = set()
 
         for dish, items in self.INGREDIENTS.items():
-            if all(self.inventory[items] > 0
+            if all(self.inventory[item] > 0
                     for item in items):
                 dishes_available.add(dish)
 
