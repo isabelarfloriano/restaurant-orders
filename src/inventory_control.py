@@ -40,3 +40,13 @@ class InventoryControl:
                 ingredients_to_buy[item] = 0
 
         return ingredients_to_buy
+    
+    def get_available_dishes(self):
+        dishes_available = set()
+
+        for dish, items in self.INGREDIENTS.items():
+            if all(self.inventory[items] > 0
+                    for item in items):
+                dishes_available.add(dish)
+        
+        return dishes_available
