@@ -25,8 +25,9 @@ class InventoryControl:
     def add_new_order(self, customer, order, day):
         ingredients = self.INGREDIENTS[order]
         for item in ingredients:
-            self.inventory[item] -= 1
-
+                if self.invetory[item] == 0:
+                    return False
+                    self.inventory[item] -= 1
         self.orders.add_new_order(customer, order, day)
 
     def get_quantities_to_buy(self):
@@ -36,8 +37,6 @@ class InventoryControl:
 
             if qtd_to_buy > 0:
                 ingredients_to_buy[item] = qtd_to_buy
-            if self.invetory[item] == 0:
-                return False
             else:
                 ingredients_to_buy[item] = 0
 
