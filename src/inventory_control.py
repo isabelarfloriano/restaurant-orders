@@ -30,4 +30,13 @@ class InventoryControl:
         self.orders.add_new_order(customer, order, day)
 
     def get_quantities_to_buy(self):
-        pass
+        ingredients_to_buy = {}
+        for item, qtd in self.invetory.items():
+            qtd_to_buy = self.MINIMUM_INVENTORY[item] - qtd
+
+            if qtd_to_buy > 0:
+                ingredients_to_buy[item] = qtd_to_buy
+            else:
+                ingredients_to_buy[item] = 0
+
+        return ingredients_to_buy
