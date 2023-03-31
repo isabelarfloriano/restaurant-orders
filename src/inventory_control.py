@@ -36,6 +36,8 @@ class InventoryControl:
 
             if qtd_to_buy > 0:
                 ingredients_to_buy[item] = qtd_to_buy
+            if self.invetory[item] == 0:
+                return False
             else:
                 ingredients_to_buy[item] = 0
 
