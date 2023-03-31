@@ -1,3 +1,6 @@
+from track_orders import TrackOrders
+
+
 class InventoryControl:
     INGREDIENTS = {
         'hamburguer': ['pao', 'carne', 'queijo'],
@@ -16,7 +19,8 @@ class InventoryControl:
     }
 
     def __init__(self):
-        pass
+        self.orders = TrackOrders()
+        self.inventory = self.MINIMUM_INVENTORY.copy()
 
     def add_new_order(self, customer, order, day):
         pass
