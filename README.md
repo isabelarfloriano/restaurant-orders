@@ -56,13 +56,45 @@
   <p>src/analyze_log.py</p>
     <ul>
       <li>A função lê os arquivos que contêm as informações dos pedidos realizados e gera o relatório solicitado.</li>
-    </ul>	
+      <li>Podemos utilizar essa função para responder as seguintes perguntas:</li>
+        <ul>
+          <li>Qual o prato mais pedido por 'maria'?</li>
+          <li>Quantas vezes 'arnaldo' pediu 'hamburguer'?</li>
+          <li>Quais pratos 'joao' nunca pediu?</li>
+          <li>Quais dias 'joao' nunca foi à lanchonete?</li>
+        </ul>
+    </ul>
+    <details>
+      <summary><b>Clique aqui para ver a saída correta da função considerando os exemplos acima.</b></summary>
+
+```
+hamburguer
+1
+{'pizza', 'coxinha', 'misto-quente'}
+{'sabado', 'segunda-feira'}
+```
+  </details>
   <p>src/track_orders.py</p>
     <ul>
       <li>Classe que simula um sistema de registro contínuo das informações de pedidos</li>
+      <li>Por meio dessa classe, é possível utilizar os seguintes métodos:</li>
+        <ul>
+          <li>`add_new_order` - o método registra um pedido na instância;</li>
+          <li>`get_most_ordered_dish_per_customer` - o método retorna o prato mais pedido;</li>
+          <li>`get_never_ordered_per_customer` - o método retorna o conjunto de pratos que a pessoa nunca pediu;</li>
+          <li>`get_days_never_visited_per_customer` - o método retorna o conjunto de dias que a pessoa nunca visitou;</li>
+          <li>`get_busiest_day` - o método retorna o dia mais movimentado;</li>
+          <li>`get_least_busy_day` - o método retorna o dia menos movimentado;</li>
+        </ul>
     </ul>
   <p>src/inventory_control.py</p>
     <ul>
       <li>Classe de gerenciamento do estoque de um estabelecimento</li>
+      <li>Por meio dessa classe, é possível utilizar os seguintes métodos:</li>
+        <ul>
+          <li>`add_new_order` - se um pedido contém um prato que não possui ingredientes suficientes em estoque, o método retorna 'False' sem registrar o pedido. Caso contrário, o método adiciona o pedido ao sistema;</li>
+          <li>`get_quantities_to_buy` - o método retorna a quantidade de ingredientes que precisam ser comprados;</li>
+          <li>`get_available_dishes` - o método retorna todos os pratos que possuem ingredientes suficientes para seu preparo;</li>
+        </ul>
     </ul>
 </details>
