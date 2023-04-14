@@ -72,5 +72,5 @@ def analyze_log(path_to_file):
     with open('data/mkt_campaign.txt', 'w') as file:
         file.write(infos)
 
-
-analyze_log(path_to_file)
+if __name__ == "__main__":
+    analyze_log(path_to_file)
