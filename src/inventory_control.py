@@ -51,3 +51,16 @@ class InventoryControl:
                 dishes_available.add(dish)
 
         return dishes_available
+ 
+if __name__ == "__main__":
+    inventory = InventoryControl()
+
+    print(
+        'Quantidade de ingredientes para comprar:',
+        inventory.get_quantities_to_buy(),
+    )
+
+    print(
+        'Pratos disponíveis no cardápio:',
+        inventory.get_available_dishes(),
+    )
